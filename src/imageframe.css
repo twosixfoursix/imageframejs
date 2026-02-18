@@ -1,0 +1,96 @@
+.imageframe
+{
+  max-width: 100%;
+  min-width: 400px;
+  width: inherit;
+  min-height: 300px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  position: relative;
+  background: rgb(32, 38, 48);
+  border-radius: 1.2ch;
+  overflow: hidden;
+}
+.imageframe * { margin: 0; padding: 0; }
+.imageframe-indication
+{
+  max-width: 250px;
+  min-width: 20px;
+  min-height: 12px;
+  margin: 0;
+  padding: 0 8px 4px 8px;
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 98%;
+  transform: translate(-50%, -98%);
+  z-index: 10;
+  user-select: none;
+  touch-action: none;
+  cursor: default;
+  -webkit-user-drag: none;
+  border-radius: 1ch;
+  background: rgba(0, 0, 0, 0.2);
+}
+.imageframe-indication-point
+{
+  min-width: 0.5em;
+  min-height: 0.5em;
+  margin: 0;
+  padding: 0 7px;
+  box-sizing: border-box;
+  display: inline-block;
+  user-select: none;
+  touch-action: none;
+  opacity: 0.5;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.imageframe-arrow
+{
+  min-width: 24px;
+  min-height: 24px;
+  margin: 0 1em;
+  padding: 1em;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  transition: background 200ms ease-in-out;
+}
+.imageframe-arrow:active { background: rgba(255, 255, 255, 0.7); }
+.imageframe-image
+{
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  display: inline-block;
+  z-index: 5;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+#imageframe-view { min-width: 400px; min-height: 300px; margin: 0; padding: 0; }
+@media (hover: hover)
+{
+  .imageframe-arrow:hover { background: rgba(255, 255, 255, 0.4); }
+  .imageframe-arrow:active { background: rgba(255, 255, 255, 0.7); }
+}
