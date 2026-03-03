@@ -16,7 +16,7 @@ _A simple single-file JavaScript image sliding gallery container without any dep
 4. Instantiate ImageFrame object via connecting it with the view holder.
 5. Call the initialization method `ini(imagelist, transitionDelay)` where:
   * `imagelist`: A list of strings representing the relative path to image files.
-  * `transitionDelay`: Time specifying how long each image should be shown before switching. __Note that the timing might not be accurate as this is completely under the discretion of the browser & it WILL throttle or not adhere whenever it deems appropriate__.
+  * `transitionDelay`: Time specifying how long each image should be shown before switching.
 * HTML (`app.htm`)
 ```
 <!DOCTYPE html>
