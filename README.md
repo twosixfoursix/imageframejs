@@ -1,6 +1,6 @@
 # ImageFrame
 
-Run of the mill simple JS image slider.
+Run of the mill simple JS image slider module.
 
 _A simple single-file JavaScript image sliding gallery container without any dependencies_.
 ![ImageFrame](https://github.com/twosixfoursix/imageframejs/blob/main/imageframe.gif)
@@ -25,14 +25,13 @@ _A simple single-file JavaScript image sliding gallery container without any dep
 <title>ImageFrame</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="stylesheet" href="./imageframe.css"/>
+<link rel="stylesheet" href="/imageframe.css"/>
 </head>
 <body>
 <main>
   <div id="imageframe-view"></div>
 </main>
 <script type="module" src="app.js"></script>
-<script type="module" src="imageframe.js"></script>
 </body>
 </html>
 ```
@@ -41,13 +40,13 @@ _A simple single-file JavaScript image sliding gallery container without any dep
 import { ImageFrame } from './imageframe.js'
 
 window.addEventListener('load', () => {
-  const imageframeView = document.getElementById('imageframe-view');
+  const imageframeView = document.getElementById('imageframe-view'); // Get container view.
   if(imageframeView === null) {
     throw new Error('No ImageFrame container found');
   }
+  window.imageframe = new ImageFrame(imageframeView); // Initialize ImageFrame & connect to view.
 
-  const imageframe = new ImageFrame(imageframeView);
-
+  // List of image items to view.
   const imagelist = [
     './image/img01.png',
     './image/img02.png',
@@ -56,6 +55,16 @@ window.addEventListener('load', () => {
     './image/img05.png',
   ];
 
-  imageframe.ini(imagelist, 3200); // 2nd arg = 0 to disable slideshow feature.
+  // Load up...
+  window.imageframe.ini(imagelist, 3200); // 2nd arg = 0 to disable slideshow feature.
+  // window.imageframe.animateOn(); // Seems to not be necessary, but won't hurt in case of any 'complication'.
 }, { once: true });
+
+window.addEventListener('pageshow', () => {
+  window.imageframe.animateOn();
+});
+
+window.addEventListener('pagehide', () => {
+  window.imageframe.animateOff();
+});
 ```
